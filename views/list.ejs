@@ -1,0 +1,27 @@
+<%- include("header") -%>
+    <div class="box" id="heading">
+    <h1><%= listTitle %></h1></div>
+        <div class="box">
+            
+            <%  TodoList.forEach(function(result){ %>
+
+                <form action="/delete" method="post">
+                  <div class="item">
+                    <input type="checkbox" name="checkbox" value="<%=result._id%>" onChange="this.form.submit()">
+                    <p><%=result.name%></p>
+                  </div>
+                  <input type="hidden" name="listName" value="<%= listTitle %>"></input>
+                </form>
+              <%  }) %>
+    
+        <form class="item" action="/" method="post">
+            <input type="text" name="work" placeholder="Enter a Task to Add" autocomplete="off">
+            <button name="submit" type="submit" value="<%= listTitle %>">+</button>
+        </form>
+    </div>
+
+
+   
+
+<%- include("footer") -%>
+ 
